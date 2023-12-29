@@ -3,12 +3,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, content, footer */
 }
 
 header {
     background-color: #333;
     color: #fff;
     padding: 10px;
+    text-align: center;
 }
 
 nav ul {
@@ -16,10 +19,13 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    justify-content: center; /* Center items for mobile */
+    flex-wrap: wrap; /* Ensure navigation items wrap on smaller screens */
 }
 
 nav ul li {
     margin-right: 20px;
+    padding: 8%;
 }
 
 nav ul li a {
@@ -37,15 +43,24 @@ nav ul li a {
 .planet-image {
     /* border-radius: 50%;*/ /* Make the image circular */
     /*max-width: 100%; *//* Ensure image doesn't exceed its container's width */
-    width: 100px;
+    width: 80px;
     height: auto;
     border-radius: 50%;
     display: block;
+    margin: 0 auto;
     object-fit: cover;
 }
 
 .planet-details {
     text-align: center;
+    padding: 5%;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10%;
 }
 
 /* Define styles for different planet sizes */
@@ -61,20 +76,27 @@ nav ul li a {
     width: 60%; /* Set a fixed width for large planets */
 }
 
-/* Mobile-first styles */
-@media screen and (min-width: 375px) {
-    nav ul {
-        flex-direction: column; /* Stack items vertically on small screens */
-        align-items: center; /* Center items horizontally on small screens */
-    }
-
-    nav ul li {
-        margin: 10px 0; /* Add spacing between items on small screens */
-    }
-}
 
 /* Styles for larger screens */
 @media screen and (min-width: 768px) {
+    body {
+        grid-template-columns: 1fr 2fr 1fr; /* Left sidebar, content, right sidebar */
+        grid-template-rows: auto 1fr; /* Header and content/footer */
+    }
+
+    header {
+        grid-column: 1 / -1; /* Header spans all columns */
+        text-align: left;
+    }
+
+    .main-content {
+        grid-column: 2; /* Content in the middle column */
+    }
+
+    footer {
+        grid-column: 1 / -1; /* Footer spans all columns */
+    }
+
     nav ul {
         flex-direction: row; /* Align items horizontally on larger screens */
         justify-content: flex-end; /* Move items to the right on larger screens */
@@ -84,12 +106,20 @@ nav ul li a {
         margin: 0; /* Reset margin for larger screens */
     }
     .planet-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 20px;
         flex-direction: row;
         align-items: flex-start;
     }
 
     .planet-image {
         margin-right: 20px;
-        width: 200px;
+        width: 150px;
+        justify-self: center;
+    }
+
+    .planet-details {
+        text-align: left;
     }
 }
