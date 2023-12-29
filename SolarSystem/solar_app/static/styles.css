@@ -35,8 +35,13 @@ nav ul li a {
 }
 
 .planet-image {
-    border-radius: 50%; /* Make the image circular */
-    max-width: 100%; /* Ensure image doesn't exceed its container's width */
+    /* border-radius: 50%;*/ /* Make the image circular */
+    /*max-width: 100%; *//* Ensure image doesn't exceed its container's width */
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    object-fit: cover;
 }
 
 .planet-details {
@@ -85,5 +90,6 @@ nav ul li a {
 
     .planet-image {
         margin-right: 20px;
+        width: 200px;
     }
 }
