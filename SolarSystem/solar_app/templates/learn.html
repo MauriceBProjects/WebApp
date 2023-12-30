@@ -1,1 +1,22 @@
 <!-- Information about each planet (e.g., name, size, distance from the sun) presented in an interactive and child-friendly way. -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="header">
+    <h1>Welcome to the Solar System Explorer</h1>
+</div>
+
+<!-- <div class="planet-container"> -->
+{% for planet in planets %}
+    <div class="planet-card {{ planet_css_class }}">
+        <img src="{{ planet.image.url }}" alt="{{ planet.name }}" class="planet-image">
+        <div class="planet-details">
+            <h2>{{ planet.name }}</h2>
+            <p>{{ planet.description }}</p>
+        </div>
+    </div>
+{% endfor %}
+<!-- </div> -->
+
+{% endblock %}

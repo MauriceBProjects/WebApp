@@ -19,11 +19,11 @@ def get_radius_class(radius):
     
 def learn(request):
     planets = Planet.objects.all()
-    return render(request, 'solar_system_app/learn.html', {'planets': planets})
+    return render(request, 'learn.html', {'planets': planets})
 
 def quiz(request):
     # Implement quiz logic here
-    return render(request, 'solar_system_app/quiz.html')
+    return render(request, 'quiz.html')
 
 def help(request):
-    return render(request, 'solar_system_app/help.html')
+    return render(request, 'help.html')
